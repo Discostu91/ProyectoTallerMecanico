@@ -7,7 +7,7 @@ import java.sql.*;
 public class conectate {
    static String bd = "tallermecanico";//nombre de la base de datos que esta en mysql
    static String login = "root";// usuario
-   static String password = "alvaro12345";// contraseña
+   static String password = "roottaller";// contraseña
    static String url = "jdbc:derby://localhost:1527/"+bd;
 
    Connection conn = null;
