@@ -1,0 +1,94 @@
+create table usuario(
+rut varchar (20) not null,
+nombre varchar (20) not null,
+apellido varchar (20) not null,
+estado_usuario boolean,
+nivel_acceso integer,
+primary key (rut)
+);
+
+create table cliente(
+rut varchar (12) not null,
+app varchar (20) not null,
+nombre varchar (20) not null,
+telefono integer not null,
+PRIMARY KEY (rut)
+);
+
+create table mecanico(
+id_mecanico integer not null auto_increment,
+app varchar (20) not null,
+nombre varchar (20) not null,
+PRIMARY KEY (id_mecanico)
+);
+
+create table mantencion_repuesto (
+secuencia integer,
+id_repuesto integer,
+PRIMARY KEY (secuencia, id_repuesto)
+);
+
+create table repuesto(
+id_repuesto integer not null auto_increment,
+descripcion varchar (100) not null,
+PRIMARY KEY (id_repuesto)
+);
+
+create table marca(
+id_marca integer not null auto_increment,
+descripcion varchar (20),
+PRIMARY KEY (id_marca)
+);
+
+create table mecanico_mantencion (
+id_mecanico integer not null,
+secuencia integer not null,
+PRIMARY KEY (id_mecanico, secuencia)
+);
+
+create table modelo(
+id_modelo integer not null,
+descripcion varchar (20) null,
+cilindrada integer null,
+color  integer null,
+id_marca integer not null,
+PRIMARY KEY (id_modelo),
+FOREIGN KEY (id_marca) REFERENCES marca (id_marca)
+);
+
+create table ficha_auto(
+folio integer not null auto_increment,
+patente varchar(6) not null,
+id_modelo integer not null,
+PRIMARY KEY (folio)
+);
+
+create table auto(
+patente varchar (6) not null,
+folio integer not null,
+rut varchar (12) not null,
+id_modelo integer not null,
+PRIMARY KEY (patente)
+);
+
+create table mantencion(
+secuencia integer not null auto_increment,
+descripcion varchar (200) not null,
+fecha_recepcion date not null,
+fecha_entrega date not null,
+folio integer not null,
+PRIMARY KEY (secuencia)
+);
+
+alter table ficha_auto add FOREIGN KEY (patente) REFERENCES auto(patente);
+
+alter table auto add FOREIGN KEY (folio) REFERENCES ficha_auto (folio);
+alter table auto add FOREIGN KEY (rut) REFERENCES cliente (rut);
+alter table auto add FOREIGN KEY (id_modelo) REFERENCES modelo (id_modelo);
+
+alter table mantencion add FOREIGN KEY (folio) REFERENCES  ficha_auto (folio);
+
+
+
+
+
