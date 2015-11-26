@@ -133,7 +133,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         btnguardar.setText("Guardar Cliente");
 
         btneliminar.setForeground(new java.awt.Color(204, 0, 51));
-        btneliminar.setText("Eliminar Cliente");
+        btneliminar.setText("Eliminar Campo");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
