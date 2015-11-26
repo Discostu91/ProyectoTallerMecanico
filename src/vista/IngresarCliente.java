@@ -36,7 +36,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtapp = new javax.swing.JTextField();
+        txtapellido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtrut = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -61,11 +61,11 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Nombre");
 
-        jLabel3.setText("App");
+        jLabel3.setText("Apellido");
 
-        txtapp.addActionListener(new java.awt.event.ActionListener() {
+        txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtappActionPerformed(evt);
+                txtapellidoActionPerformed(evt);
             }
         });
 
@@ -100,7 +100,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtapp)
+                            .addComponent(txtapellido)
                             .addComponent(txttelefono))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -120,7 +120,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -215,9 +215,9 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtappActionPerformed
+    private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtappActionPerformed
+    }//GEN-LAST:event_txtapellidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -233,7 +233,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtapp;
+    private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtrut;
     private javax.swing.JTextField txttelefono;

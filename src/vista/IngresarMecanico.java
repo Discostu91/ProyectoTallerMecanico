@@ -33,13 +33,18 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        txtapp = new javax.swing.JTextField();
+        txtapellido = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jLabel4.setText("Nombre");
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 51, 102));
@@ -50,11 +55,11 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Nombre");
 
-        jLabel3.setText("App");
+        jLabel3.setText("Apellido");
 
-        txtapp.addActionListener(new java.awt.event.ActionListener() {
+        txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtappActionPerformed(evt);
+                txtapellidoActionPerformed(evt);
             }
         });
 
@@ -69,7 +74,7 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
                 .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                    .addComponent(txtapp))
+                    .addComponent(txtapellido))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -82,7 +87,7 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -154,9 +159,9 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtappActionPerformed
+    private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtappActionPerformed
+    }//GEN-LAST:event_txtapellidoActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
@@ -181,7 +186,7 @@ public class IngresarMecanico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtapp;
+    private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }
