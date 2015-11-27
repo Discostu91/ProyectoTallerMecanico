@@ -72,7 +72,7 @@ public class IngresarAuto extends javax.swing.JInternalFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sedanpng.png"))); // NOI18N
 
-        jButton2.setText("Abrir Formulario Modelo");
+        jButton2.setText("Agregar Modelo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
