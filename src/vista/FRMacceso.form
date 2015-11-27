@@ -49,9 +49,6 @@
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="INGRESO SISTEMA TALLER MECANICO"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">

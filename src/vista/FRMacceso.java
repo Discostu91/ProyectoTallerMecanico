@@ -133,8 +133,6 @@ public FRMacceso() {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("INGRESO SISTEMA TALLER MECANICO");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

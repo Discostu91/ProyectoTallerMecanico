@@ -135,6 +135,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         );
 
         btnnuevo.setForeground(new java.awt.Color(204, 0, 0));
+        btnnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/16 (User add).jpg"))); // NOI18N
         btnnuevo.setText("Nuevo Cliente");
         btnnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,10 +144,12 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         });
 
         btnguardar.setForeground(new java.awt.Color(204, 0, 0));
-        btnguardar.setText("Guardar Cliente");
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/16 (Save).jpg"))); // NOI18N
+        btnguardar.setText("Guardar ");
 
         btneliminar.setForeground(new java.awt.Color(204, 0, 51));
-        btneliminar.setText("Eliminar Campo");
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/16 (Delete).jpg"))); // NOI18N
+        btneliminar.setText("Eliminar");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
@@ -154,7 +157,8 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         });
 
         jButton1.setForeground(new java.awt.Color(204, 0, 51));
-        jButton1.setText("Actualizar Cliente");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/16 (User edit).jpg"))); // NOI18N
+        jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
