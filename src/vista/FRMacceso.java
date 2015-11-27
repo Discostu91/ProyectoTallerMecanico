@@ -5,6 +5,8 @@
  */
 package vista;
 import controlador.controlAcceso;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 
@@ -138,16 +140,60 @@ public FRMacceso() {
 
 @SuppressWarnings("static-access")
     private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
+        //capturo los datos ingresados en el formulario acceso
         String user=this.txtUser.getText();
         String pass=this.txtPass.getText();
-        String priv=null;
+        //variable inicializada en null, para validar su cambo de estado y asi permitir el ingreso al menu correspondiente
+        //int privilegio=0;
+               
+        //creo la instancia de la clase control
         controlAcceso control=new controlAcceso();
+        //llamo a la funcion checkuser que hace toda la pega y me retorna valores
         control.checkUser(user, pass);
             
+        String nombre = control.getNombre();
+        String apellido = control.getApellido();
+        int privilegio = control.getNivel_acceso();
+        boolean estado_usuario = control.isEstado_usuario();
         
-         if(acceso==true){
+        //inicio el if que preguntara si el acceso es valido
+        
+         if(estado_usuario==true & privilegio != 0){
              
-         }else
+             //aca desplegamos la pantalla correspodiente al tipo de privilegio
+        switch(privilegio){
+                 
+                 case 1:
+                    JOptionPane.showMessageDialog(this, "Bienvenido Administrador: "+nombre+" "+apellido);
+                    FormAdmin Ventana1=new FormAdmin();
+                    Ventana1.setLocationRelativeTo(null);
+                    Ventana1.setVisible(true);
+                     break;
+                 
+                 case 2:
+                    JOptionPane.showMessageDialog(this, "Bienvenido Recepcionista: "+nombre+" "+apellido);
+                    FormRecepcionista Ventana2=new FormRecepcionista();
+                    Ventana2.setLocationRelativeTo(null);
+                    Ventana2.setVisible(true);
+                     break;
+                     
+                 case 3:
+                    JOptionPane.showMessageDialog(this, "Bienvenido Jefe de Mecánicos: "+nombre+" "+apellido);
+                    FormJMecanicos Ventana3=new FormJMecanicos();
+                    Ventana3.setLocationRelativeTo(null);
+                    Ventana3.setVisible(true);
+                     break;
+                     
+                 case 4:    
+                    JOptionPane.showMessageDialog(this, "Bienvenido Mecánico: "+nombre+" "+apellido);
+                    FormMecanicos Ventana4=new FormMecanicos();
+                    Ventana4.setLocationRelativeTo(null);
+                    Ventana4.setVisible(true);
+                     break;
+             }
+         }else{
+                 JOptionPane.showMessageDialog(this, "Datos ingresados incorrectos");
+                 }
     }//GEN-LAST:event_btnaceptarActionPerformed
 
     private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed

@@ -90,6 +90,12 @@ alter table auto add FOREIGN KEY (id_modelo) REFERENCES modelo (id_modelo);
 alter table mantencion add FOREIGN KEY (folio) REFERENCES  ficha_auto (folio);
 
 
+insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-9', 'Alvaro', 'Vargas', true, 1, '12345');
+insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-8', 'Cristian', 'Maldonado', true, 2, '123');
+insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-7', 'Borys', 'Almonacid', true, 3, '123');
+insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-6', 'Henry', 'Perez', false, 4, '123');
+
+
 
 
 

@@ -11,16 +11,16 @@ import vista.FRMacceso;
  * @author Alvaro
  */
 public class TallerMecanicoJava {
-conectate con;
+
 
 public TallerMecanicoJava(){
-    con = new conectate();
+    
 }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        //arranque del sistema, se inicia con el login
       new FRMacceso().setVisible(true);
 
     }
