@@ -229,7 +229,10 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtapellidoActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-        // TODO add your handling code here:
+        txtrut.setText("");
+        txtnombre.setText("");
+        txtapellido.setText("");
+        txttelefono.setText("");
     }//GEN-LAST:event_btnnuevoActionPerformed
 
 
