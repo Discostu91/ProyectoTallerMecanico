@@ -5,7 +5,8 @@
  */
 package vista;
 
-import vista.*;
+
+
 
 /**
  *
@@ -18,6 +19,7 @@ public class FormMecanicos extends javax.swing.JFrame {
      */
     public FormMecanicos() {
         initComponents();
+        
         setLocationRelativeTo(null);
     }
 
@@ -174,7 +176,7 @@ public class FormMecanicos extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 IngresarMantencion mantencion=new IngresarMantencion();
-      PanelPrincipal.add(mantencion);
+     PanelPrincipal.add(mantencion);
       mantencion.show();         
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -184,12 +186,12 @@ IngresarMantencion mantencion=new IngresarMantencion();
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 IngresarCliente cliente=new IngresarCliente();
-      PanelPrincipal.add(cliente);
+     PanelPrincipal.add(cliente);
       cliente.show();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-IngresarMecanico mecanico=new IngresarMecanico();
+RegistrarMecanico mecanico=new RegistrarMecanico();
       PanelPrincipal.add(mecanico);
       mecanico.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -201,7 +203,7 @@ RegistrarMarca marca=new RegistrarMarca();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     RegistrarRepuestos repuesto=new RegistrarRepuestos();
+     IngresarRepuesto repuesto=new IngresarRepuesto();
       PanelPrincipal.add(repuesto);
       repuesto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
