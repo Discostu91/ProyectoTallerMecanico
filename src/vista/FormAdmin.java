@@ -102,6 +102,11 @@ public class FormAdmin extends javax.swing.JFrame {
         jMenu1.add(jMenuItem5);
 
         jMenuItem8.setText("Administación Usuarios");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem8);
 
         jMenuBar1.add(jMenu1);
@@ -209,6 +214,12 @@ RegistrarMarca marca=new RegistrarMarca();
       PanelPrincipal.add(auto);
       auto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        AdminUsuario usuario=new AdminUsuario();
+        PanelPrincipal.add(usuario);
+        usuario.show();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
