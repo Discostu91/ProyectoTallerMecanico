@@ -216,7 +216,7 @@ RegistrarMarca marca=new RegistrarMarca();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        AdminUsuario usuario=new AdminUsuario();
+        AdminUsuarioForm usuario=new AdminUsuarioForm();
         PanelPrincipal.add(usuario);
         usuario.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
