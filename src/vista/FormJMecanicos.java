@@ -187,7 +187,7 @@ IngresarCliente cliente=new IngresarCliente();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-IngresarMecanico mecanico=new IngresarMecanico();
+RegistrarMecanico mecanico=new RegistrarMecanico();
       PanelPrincipal.add(mecanico);
       mecanico.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -199,7 +199,7 @@ RegistrarMarca marca=new RegistrarMarca();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     RegistrarRepuestos repuesto=new RegistrarRepuestos();
+     IngresarRepuesto repuesto=new IngresarRepuesto();
       PanelPrincipal.add(repuesto);
       repuesto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
