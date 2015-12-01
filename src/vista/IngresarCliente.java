@@ -312,8 +312,8 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         String app=txtapellido.getText();
         String telefono=txttelefono.getText();
         
-        Cliente AC=new Cliente();
-        AC.ActualizarCliente(rut, app, nombre, telefono);
+//        Cliente AC=new Cliente();
+        C.ActualizarCliente(rut, app, nombre, telefono);
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
@@ -334,8 +334,8 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         String app=txtapellido.getText();
         String telefono=txttelefono.getText();
         
-        Cliente NC=new Cliente();
-        NC.GuardarCliente(rut, app, nombre, telefono);
+//        Cliente NC=new Cliente();
+        C.GuardarCliente(rut, app, nombre, telefono);
         updateTabla();
     }//GEN-LAST:event_btnguardarActionPerformed
 
