@@ -38,9 +38,9 @@ mecanico meca=new mecanico();
         mitabla.setModel(midatos); 
         //ajustamos tamaño de la celda ID
         TableColumn columna = mitabla.getColumn("id_mecanico");        
-        columna.setPreferredWidth(50);
-        columna.setMinWidth(10);
-        columna.setMaxWidth(30);
+//        columna.setPreferredWidth(50);
+//        columna.setMinWidth(10);
+//        columna.setMaxWidth(30);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,7 +121,7 @@ mecanico meca=new mecanico();
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "id", "app", "nombre"
             }
         ));
         mitabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,7 +219,9 @@ mecanico meca=new mecanico();
         String nombre = txtnombre.getText();
          
         meca.updateMecanico(id_mecanico, app, nombre);
-        updateTabla();  }        // TODO add your handling code here:
+        updateTabla();  }        
+    txtapp.setText("");
+        txtnombre.setText(""); 
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void btnnuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevo2ActionPerformed
@@ -242,7 +244,9 @@ if (fila > -1){
        
         
         meca.NuevaMecanico(app, nombre);
-        updateTabla();        // TODO add your handling code here:
+        updateTabla();  
+       txtapp.setText("");
+        txtnombre.setText(""); 
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void mitablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mitablaMouseClicked
