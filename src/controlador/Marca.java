@@ -70,9 +70,10 @@ public void ActualizarMarca(String id, String descripcion){
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
+            "id_marca,"+
             " descripcion" +
             " FROM marca" +
-            " ORDER BY descripcion ");
+            " ORDER BY id_marca ");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
