@@ -48,7 +48,7 @@ PRIMARY KEY (id_mecanico, secuencia)
 );
 
 create table modelo(
-id_modelo integer not null,
+id_modelo integer not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
 descripcion varchar (20) not null,
 cilindrada varchar (10) not null,
 id_marca integer not null,
@@ -93,7 +93,14 @@ insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)
 insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-7', 'Borys', 'Almonacid', 'Activo', 'Recepcionista', '123');
 insert into usuario (rut, nombre, apellido, estado_usuario, nivel_acceso, clave)values ('1-6', 'Henry', 'Perez', 'Activo', 'Mecanico', '123');
 
+insert into marca (descripcion)values ('Fiat');
+insert into marca (descripcion)values ('Chevrolet');
+insert into marca (descripcion)values ('Nissan');
+insert into marca (descripcion)values ('Honda');
 
 
+insert into modelo (descripcion, cilindrada, id_marca)values ('Palio','1.6cc',1);
+insert into modelo (descripcion, cilindrada, id_marca)values ('Corsa','1.6cc',2);
+insert into modelo (descripcion, cilindrada, id_marca)values ('Terrano','13.0cc',3);
 
 
