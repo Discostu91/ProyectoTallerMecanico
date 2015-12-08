@@ -60,7 +60,6 @@ FOREIGN KEY (id_marca) REFERENCES marca (id_marca)
 create table ficha_auto(
 folio integer not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
 patente varchar(6) not null,
-id_modelo integer not null,
 PRIMARY KEY (folio)
 );
 
@@ -68,7 +67,6 @@ create table auto(
 patente varchar (6) not null,
 folio integer not null,
 rut varchar (12) not null,
-id_modelo integer not null,
 PRIMARY KEY (patente)
 );
 
@@ -85,7 +83,6 @@ alter table ficha_auto add FOREIGN KEY (patente) REFERENCES auto(patente);
 
 alter table auto add FOREIGN KEY (folio) REFERENCES ficha_auto (folio);
 alter table auto add FOREIGN KEY (rut) REFERENCES cliente (rut);
-alter table auto add FOREIGN KEY (id_modelo) REFERENCES modelo (id_modelo);
 
 alter table mantencion add FOREIGN KEY (folio) REFERENCES  ficha_auto (folio);
 

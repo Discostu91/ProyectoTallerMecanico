@@ -19,6 +19,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
     public AdminUsuarioForm() {
         initComponents();
         updateTabla();
+        
     }
 
     /**
