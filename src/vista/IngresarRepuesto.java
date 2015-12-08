@@ -38,10 +38,10 @@ repuesto repu=new repuesto();
         mitabla.setModel(midatos); 
         //ajustamos tamaño de la celda ID
         TableColumn columna = mitabla.getColumn("id_repuesto");        
-        columna.setPreferredWidth(50);
-        columna.setMinWidth(10);
-        columna.setMaxWidth(30);
-    }
+//        columna.setPreferredWidth(50);
+//        columna.setMinWidth(10);
+//        columna.setMaxWidth(30);
+   }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -218,7 +218,11 @@ if (fila > -1){
         
          
         repu.updateRepuesto(id_repuesto, app);
-        updateTabla();  }        //        // TODO add your handling code here:
+        updateTabla(); 
+ txtdescripcion.setText("");
+ }
+    
+     
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -231,7 +235,8 @@ if (fila > -1){
        
         
        repu.NuevaRepuesto(app);
-        updateTabla();                // TODO add your handling code here:
+        updateTabla();   
+         txtdescripcion.setText("");  
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void mitablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mitablaMouseClicked
