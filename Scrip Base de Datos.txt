@@ -65,7 +65,6 @@ PRIMARY KEY (folio)
 
 create table auto(
 patente varchar (6) not null,
-folio integer not null,
 rut varchar (12) not null,
 PRIMARY KEY (patente)
 );
