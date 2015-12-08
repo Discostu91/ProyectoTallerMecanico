@@ -151,38 +151,38 @@ public FRMacceso() {
             
         String nombre = control.getNombre();
         String apellido = control.getApellido();
-        int privilegio = control.getNivel_acceso();
-        boolean estado_usuario = control.isEstado_usuario();
-        
+        String privilegio = control.getNivel_acceso();
+        String estado_usuario = control.getEstado_usuario();
+
         //inicio el if que preguntara si el acceso es valido
-        
-         if(estado_usuario==true & privilegio != 0){
+              
+         if(estado_usuario != null & privilegio != null){
              
              //aca desplegamos la pantalla correspodiente al tipo de privilegio
         switch(privilegio){
                  
-                 case 1:
+                 case "Administrador":
                     JOptionPane.showMessageDialog(this, "Bienvenido Administrador: "+nombre+" "+apellido);
                     FormAdmin Ventana1=new FormAdmin();
                     Ventana1.setLocationRelativeTo(null);
                     Ventana1.setVisible(true);
                      break;
                  
-                 case 2:
+                 case "Recepcionista":
                     JOptionPane.showMessageDialog(this, "Bienvenido Recepcionista: "+nombre+" "+apellido);
                     FormRecepcionista Ventana2=new FormRecepcionista();
                     Ventana2.setLocationRelativeTo(null);
                     Ventana2.setVisible(true);
                      break;
                      
-                 case 3:
+                 case "Jefe Mecanicos":
                     JOptionPane.showMessageDialog(this, "Bienvenido Jefe de Mecánicos: "+nombre+" "+apellido);
                     FormJMecanicos Ventana3=new FormJMecanicos();
                     Ventana3.setLocationRelativeTo(null);
                     Ventana3.setVisible(true);
                      break;
                      
-                 case 4:    
+                 case "Mecanico":    
                     JOptionPane.showMessageDialog(this, "Bienvenido Mecánico: "+nombre+" "+apellido);
                     FormMecanicos Ventana4=new FormMecanicos();
                     Ventana4.setLocationRelativeTo(null);

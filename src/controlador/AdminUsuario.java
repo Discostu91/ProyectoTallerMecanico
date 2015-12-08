@@ -17,43 +17,44 @@ public class AdminUsuario {
   } 
   
   /*Añade un nuevo registro*/
-   public void NuevoUsuario(String rut, String nombre, String apellido, boolean estado_usuario, int nivel_acceso, String clave){
+   public void NuevoUsuario(String rut, String nombre, String apellido, String estado_usuario, String nivel_acceso, String clave){
        try {            
-            PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
-                    "usuario(rut, nombre, apellido, estado_usuario, nivel_acceso, clave) " +
-                    " values(?,?,?,?,?,?)");            
-            pstm.setString(1, rut);
-            pstm.setString(2, nombre);
-            pstm.setString(3, apellido);                        
-            pstm.setBoolean(4, estado_usuario);
-            pstm.setInt(5, nivel_acceso);
-            pstm.setString(6, clave); 
-            pstm.execute();
-            pstm.close();            
+           try (PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
+                   "usuario(rut, nombre, apellido, estado_usuario, nivel_acceso, clave) " +
+                   " values(?,?,?,?,?,?)")) {
+               pstm.setString(1, rut);
+               pstm.setString(2, nombre);
+               pstm.setString(3, apellido);
+               pstm.setString(4, estado_usuario);
+               pstm.setString(5, nivel_acceso);
+               pstm.setString(6, clave);
+               pstm.execute();
+           }            
          }catch(SQLException e){
          System.out.println(e);
       }
    }
 
-     public void updateUsuario(String rut, String nombre, String apellido, boolean estado_usuario, int nivel_acceso, String clave){
+     public void updateUsuario(String rut, String nombre, String apellido, String estado_usuario, String nivel_acceso, String clave){
        try {            
-            PreparedStatement pstm = con.getConnection().prepareStatement("update usuario " +
+            PreparedStatement pstm = con.getConnection().prepareStatement("update usuario "+
             "set nombre = ? ," +
             "apellido = ? ," +
             "estado_usuario = ? ," +                    
-            "nivel_acceso = ? " +        
+            "nivel_acceso = ? ," +        
             "clave = ? " +         
-            "where rut = ? ");            
+            "where rut = ? ");
             pstm.setString(1, nombre);                   
             pstm.setString(2, apellido);
-            pstm.setBoolean(3, estado_usuario);
-            pstm.setInt(4, nivel_acceso);
+            pstm.setString(3, estado_usuario);
+            pstm.setString(4, nivel_acceso);
             pstm.setString(5, clave);
             pstm.setString(6, String.valueOf(rut));
             pstm.execute();
             pstm.close();            
          }catch(SQLException e){
          System.out.println(e);
+           
       }
    }
    
@@ -90,7 +91,7 @@ public class AdminUsuario {
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
             " rut, nombre, apellido, estado_usuario, nivel_acceso, clave " +
             " FROM usuario" +
-            " ORDER BY id ");
+            " ORDER BY rut ");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){

@@ -14,8 +14,8 @@ public class controlAcceso {
     private String rut;
     private String nombre;
     private String apellido;
-    private boolean estado_usuario;
-    private int nivel_acceso;
+    private String estado_usuario;
+    private String nivel_acceso;
     private String clave;
     conectate con=new conectate();
             
@@ -36,8 +36,8 @@ public class controlAcceso {
             rut = res.getString("rut");
             nombre = res.getString("nombre");
             apellido = res.getString("apellido");
-            estado_usuario = res.getBoolean("estado_usuario");
-            nivel_acceso = res.getInt("nivel_acceso");
+            estado_usuario = res.getString("estado_usuario");
+            nivel_acceso = res.getString("nivel_acceso");
             clave = res.getString("clave");
             
          }
@@ -62,13 +62,15 @@ public class controlAcceso {
         return apellido;
     }
 
-    public boolean isEstado_usuario() {
+    public String getEstado_usuario() {
         return estado_usuario;
     }
 
-    public int getNivel_acceso() {
+    public String getNivel_acceso() {
         return nivel_acceso;
     }
+
+    
 
     public String getClave() {
         return clave;
@@ -87,13 +89,15 @@ public class controlAcceso {
         this.apellido = apellido;
     }
 
-    public void setEstado_usuario(boolean estado_usuario) {
+    public void setEstado_usuario(String estado_usuario) {
         this.estado_usuario = estado_usuario;
     }
 
-    public void setNivel_acceso(int nivel_acceso) {
+    public void setNivel_acceso(String nivel_acceso) {
         this.nivel_acceso = nivel_acceso;
     }
+
+    
 
     public void setClave(String clave) {
         this.clave = clave;

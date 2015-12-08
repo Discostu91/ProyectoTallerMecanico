@@ -23,6 +23,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
     
     public IngresarCliente() {
         initComponents();
+        updateTabla();
         
     }
     
@@ -314,6 +315,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         
 //        Cliente AC=new Cliente();
         C.ActualizarCliente(rut, app, nombre, telefono);
+        updateTabla();
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
@@ -326,6 +328,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         txtnombre.setText("");
         txtapellido.setText("");
         txttelefono.setText("");
+        updateTabla();
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed

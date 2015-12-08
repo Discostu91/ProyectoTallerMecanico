@@ -5,6 +5,8 @@
  */
 package vista;
 import controlador.AdminUsuario;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 /**
  *
  * @author crist
@@ -16,6 +18,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
      */
     public AdminUsuarioForm() {
         initComponents();
+        updateTabla();
     }
 
     /**
@@ -54,6 +57,8 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablausuario = new javax.swing.JTable();
 
+        setClosable(true);
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 51, 102));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -76,8 +81,18 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         jLabel4.setText("Estado Cuenta");
 
         cmbestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Activo", "Inactivo" }));
+        cmbestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbestadoActionPerformed(evt);
+            }
+        });
 
         cmbprivilegio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Administrador", "Jefe Mecanicos", "Recepcionita", "Mecanico" }));
+        cmbprivilegio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbprivilegioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,7 +130,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtclave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -140,23 +155,23 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(32, 32, 32)))
+                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         btnguardar.setForeground(new java.awt.Color(204, 0, 0));
@@ -217,23 +232,24 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -242,8 +258,8 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,7 +267,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -275,10 +291,11 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         String nombre = txtnombre.getText();
         String apellido = txtapellido.getText();
         String estado_usuario = String.valueOf(cmbestado.getSelectedItem());
-        String nivel_acceso = String.valueOf(cmbprivilegio.getSelectedIndex());      
+        String nivel_acceso = String.valueOf(cmbprivilegio.getSelectedItem());      
         String clave = txtclave.getText();        
         au.updateUsuario(rut, nombre, apellido, estado_usuario, nivel_acceso, clave);
         updateTabla(); 
+        nuevo();
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
@@ -290,34 +307,43 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
     private void tablausuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablausuarioMouseClicked
         fila = tablausuario.rowAtPoint(evt.getPoint());                 
          if (fila > -1){                          
-             txtrut.setText(String.valueOf(tablausuario.getValueAt(fila, 1)));
-             txtnombre.setText(String.valueOf(tablausuario.getValueAt(fila, 2)));
-             txtapellido.setText(String.valueOf(tablausuario.getValueAt(fila, 3)));
-             cmbestado.setSelectedItem(String.valueOf(tablausuario.getValueAt(fila, 4)));
-             cmbprivilegio.setSelectedIndex(String.valueOf(tablausuario.getValueAt(fila, 5)));
-             txtapellido.setText(String.valueOf(tablausuario.getValueAt(fila, 6)));
+             txtrut.setText(String.valueOf(tablausuario.getValueAt(fila, 0)));
+             txtnombre.setText(String.valueOf(tablausuario.getValueAt(fila, 1)));
+             txtapellido.setText(String.valueOf(tablausuario.getValueAt(fila, 2)));
+             cmbestado.setSelectedItem(String.valueOf(tablausuario.getValueAt(fila, 3)));
+             cmbprivilegio.setSelectedItem(tablausuario.getValueAt(fila, 4));
+             txtclave.setText(String.valueOf(tablausuario.getValueAt(fila, 5)));
          }
     }//GEN-LAST:event_tablausuarioMouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         String rut = txtrut.getText();
-        String name = txtnombre.getText();
-        String pat = txtapellido.getText();
-        String mat = String.valueOf(cmbestado.getSelectedItem());      
-        String mail = String.valueOf(cmbprivilegio.getSelectedIndex());
-        au.NuevoUsuario(rut, name, mail, closable, fila, name);
+        String nombre = txtnombre.getText();
+        String apellido = txtapellido.getText();
+        String estado_usuario = String.valueOf(cmbestado.getSelectedItem());
+        String nivel_acceso = String.valueOf(cmbprivilegio.getSelectedItem());
+        String clave = txtclave.getText();
+        au.NuevoUsuario(rut, nombre, apellido, estado_usuario, nivel_acceso, clave);
         updateTabla(); 
     }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void cmbprivilegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbprivilegioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbprivilegioActionPerformed
+
+    private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbestadoActionPerformed
     private void updateTabla(){             
-//        String[] columNames = {"Rut","Nombre","Apellido","estado_cuenta", "Privilegios", "Clave"};  
+        String[] columNames = {"Rut","Nombre","Apellido","Estado Cuenta", "Privilegios", "Clave"};  
         // se utiliza la funcion
         dtau = au.getDatos();
                
         // se colocan los datos en la tabla
-//        tablausuario datos = new tablausuario();                        
+        DefaultTableModel datos = new DefaultTableModel(dtau,columNames);                        
         tablausuario.setModel(datos); 
         //ajustamos tamaño de la celda ID
-//        TableColumn columna = tabla.getColumn("id");        
+        TableColumn columna = tablausuario.getColumn("Rut");        
 //        columna.setPreferredWidth(50);
 //        columna.setMinWidth(10);
 //        columna.setMaxWidth(30);
