@@ -28,7 +28,7 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
     }
     
     private void updateTabla(){             
-        String[] columNames = {"Id_Marca","Descripcion"};  
+        String[] columNames = {"id_marca","descripcion"};  
         // se utiliza la funcion
         dtPer = M.getDatos();
                
@@ -36,10 +36,10 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
         DefaultTableModel datos = new DefaultTableModel(dtPer,columNames);                        
         Tabla.setModel(datos); 
         //ajustamos tamaño de la celda ID
-        TableColumn columna = Tabla.getColumn("Id_Marca");        
-        columna.setPreferredWidth(50);
-        columna.setMinWidth(10);
-        columna.setMaxWidth(30);
+        TableColumn columna = Tabla.getColumn("id_marca");        
+//        columna.setPreferredWidth(50);
+//        columna.setMinWidth(10);
+//        columna.setMaxWidth(30);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -54,7 +54,8 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
         btneliminar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        btnbuscar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
 
         setClosable(true);
@@ -85,8 +86,8 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,18 +136,16 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/marca.png"))); // NOI18N
 
+        btnbuscar.setText("Buscar");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", ""},
-                {"", ""},
-                {"", ""},
-                {"", ""},
-                {null, ""},
-                {null, ""},
-                {null, ""},
-                {null, ""},
-                {null, ""},
-                {null, ""}
+
             },
             new String [] {
                 "ID", "Descripcion"
@@ -157,52 +156,55 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
                 TablaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(Tabla);
+        jScrollPane2.setViewportView(Tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel2))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(29, 29, 29))
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel2)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnnuevo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnbuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -222,6 +224,7 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         if (fila > -1){
         String id = String.valueOf(Tabla.getValueAt(fila, 0));
+        String descripcion=txtdescripcion.getText();
         
         M.EliminarMarca(id);
         updateTabla();
@@ -237,6 +240,7 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
         String descripcion=txtdescripcion.getText();
         
         M.ActualizarMarca(id, descripcion);
+        updateTabla();
             
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
@@ -248,10 +252,15 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
         updateTabla();    
     }//GEN-LAST:event_btnguardarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        updateTabla();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
     private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
         fila = Tabla.rowAtPoint(evt.getPoint());                 
          if (fila > -1){                          
-             txtdescripcion.setText(String.valueOf(Tabla.getValueAt(fila, 1)));
+             txtdescripcion.setText(String.valueOf(Tabla.getValueAt(fila, 0)));
+             updateTabla();
          }
     }//GEN-LAST:event_TablaMouseClicked
 
@@ -259,6 +268,7 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTable Tabla;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnnuevo;
@@ -266,7 +276,7 @@ public class RegistrarMarca extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtdescripcion;
     // End of variables declaration//GEN-END:variables
 }

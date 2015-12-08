@@ -16,7 +16,7 @@ public class Marca {
    public void GuardarMarca(String descripcion){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
-                    "marca(Descripcion) " +
+                    "marca(descripcion) " +
                     " values(?)");            
             pstm.setString(1, descripcion);
             pstm.execute();
@@ -28,7 +28,7 @@ public class Marca {
    
    public void EliminarMarca(String id){  
             try {                
-                PreparedStatement pstm = con.getConnection().prepareStatement("delete from cliente where Id = ?");            
+                PreparedStatement pstm = con.getConnection().prepareStatement("delete from cliente where id_marca = ?");            
                 pstm.setString(1, id);                   
                 pstm.execute();
                 pstm.close();            
@@ -40,10 +40,10 @@ public class Marca {
 public void ActualizarMarca(String id, String descripcion){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("update marca " +
-            "set Descripcion = ? " +
-            "where Id = ? ");
-            pstm.setString(1, id);                   
-            pstm.setString(2, descripcion);
+            "set descripcion = ? " +
+            "where id_marca = ? ");
+            pstm.setString(1, descripcion);                   
+            pstm.setString(2, String.valueOf(id));
             pstm.execute();
             pstm.close();   
             }catch(SQLException e){
@@ -66,18 +66,20 @@ public void ActualizarMarca(String id, String descripcion){
          System.out.println(e);
       }
       
-    Object[][] data = new String[registros][1];  
+    Object[][] data = new String[registros][2];  
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
-            " Descripcion" +
+            " descripcion" +
             " FROM marca" +
-            " ORDER BY Descripcion ");
+            " ORDER BY descripcion ");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
-            String estdescripcion = res.getString("Descripcion");
-            data[i][0] = estdescripcion;                           
+            String estid = res.getString("id_marca");
+            String estdescripcion = res.getString("descripcion");
+            data[i][0] = estid;
+            data[i][1] = estdescripcion;                           
             i++;
          }
          res.close();

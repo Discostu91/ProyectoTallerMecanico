@@ -15,11 +15,11 @@ public class Cliente {
      public void ActualizarCliente(String rut, String app, String nombre, String telefono){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("update cliente " +
-            "set Rut = ? ," +
-            "App = ? ," +
-            "Nombre = ? ," +
-            "Telefono = ? ," +
-            "where Rut = ? ");
+            "set rut = ? ," +
+            "app = ? ," +
+            "nombre = ? ," +
+            "telefono = ? " +
+            "where rut = ? ");
             pstm.setString(1, rut);                   
             pstm.setString(2, app);
             pstm.setString(3, nombre);
@@ -33,7 +33,7 @@ public class Cliente {
    
    public void EliminarCliente(String rut){  
             try {                
-                PreparedStatement pstm = con.getConnection().prepareStatement("delete from cliente where Rut = ?");            
+                PreparedStatement pstm = con.getConnection().prepareStatement("delete from cliente where rut = ?");            
                 pstm.setString(1, rut);                   
                 pstm.execute();
                 pstm.close();            
@@ -45,7 +45,7 @@ public class Cliente {
    public void GuardarCliente(String rut, String app, String nombre, String telefono){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
-                    "cliente(Rut, App, Nombre, Telefono) " +
+                    "cliente(rut, app, nombre, telefono) " +
                     " values(?,?,?,?)");            
             pstm.setString(1, rut);
             pstm.setString(2, app);
@@ -78,16 +78,16 @@ public class Cliente {
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
-            " Rut, App, Nombre, Telefono" +
+            " rut, app, nombre, telefono" +
             " FROM cliente" +
-            " ORDER BY Rut ");
+            " ORDER BY rut ");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
-            String estrut = res.getString("Rut");
-            String estapp = res.getString("App");
-            String estnombre = res.getString("Nombre");
-            String esttelefono = res.getString("Telefono");
+            String estrut = res.getString("rut");
+            String estapp = res.getString("app");
+            String estnombre = res.getString("nombre");
+            String esttelefono = res.getString("telefono");
             data[i][0] = estrut;    
             data[i][1] = estapp; 
             data[i][2] = estnombre;            
@@ -99,5 +99,6 @@ public class Cliente {
          System.out.println(e);
     }
     return data;
- }    
+ }  
 }
+
