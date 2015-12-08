@@ -4,20 +4,42 @@
  * and open the template in the editor.
  */
 package vista;
+import java.sql.ResultSet;
 
 /**
  *
  * @author crist
  */
 public class MantencionRepuesto extends javax.swing.JInternalFrame {
-
+    private javax.swing.DefaultComboBoxModel modelocmbrepuesto;
     /**
      * Creates new form MantencionRepuesto
      */
     public MantencionRepuesto() {
+        modelocmbrepuesto = new javax.swing.DefaultComboBoxModel(new String[] {});
         initComponents();
+        inicmbrepuesto();
+        
+        
     }
 
+    private void inicmbrepuesto() {
+        controlador.conectate BD = new controlador.conectate();
+        ResultSet resul;
+        try {
+            BD.getConnection();
+            resul = BD.getSql("SELECT id_repuesto, descripcion FROM repuesto");
+
+            modelocmbrepuesto.addElement("[ Seleccionar ]");
+            //Llenamos con datos el JComboBox
+            while(resul.next())
+                modelocmbrepuesto.addElement(resul.getString("descripcion"));
+
+        } catch (Exception e) {
+        }
+//        BD.desconectar();
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +54,7 @@ public class MantencionRepuesto extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtsecuencia = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbrepuesto = new javax.swing.JComboBox();
         btnguardar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
 
@@ -56,7 +78,7 @@ public class MantencionRepuesto extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbrepuesto.setModel(modelocmbrepuesto);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,7 +92,7 @@ public class MantencionRepuesto extends javax.swing.JInternalFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtsecuencia, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbrepuesto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,11 +102,11 @@ public class MantencionRepuesto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtsecuencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
+                    .addComponent(cmbrepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
 
         btnguardar.setForeground(new java.awt.Color(204, 0, 0));
@@ -139,12 +161,14 @@ public class MantencionRepuesto extends javax.swing.JInternalFrame {
     private void txtsecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsecuenciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsecuenciaActionPerformed
-
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cmbrepuesto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
