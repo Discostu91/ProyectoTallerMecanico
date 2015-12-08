@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controlador;
+import vista.IngresarMantencion;
 import java.sql.*;
 /**
  *
@@ -87,12 +88,13 @@ public mantencion (){
          System.out.println(e);
       }
       
-    Object[][] data = new String[registros][4];  
+    Object[][] data = new String[registros][5];  
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
             " secuencia, descripcion, fecha_recepcion, fecha_entrega, folio" +
             " FROM mantencion");
+         
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
@@ -107,6 +109,80 @@ public mantencion (){
             data[i][3] = fecha_entrega;
             data[i][4] = folio;
                        
+            i++;
+         }
+         res.close();
+          }catch(SQLException e){
+         System.out.println(e);
+    }
+    return data;
+ }    
+           //MECANICO
+ public Object [][] getDatosMecanicos(String secuencia){
+      int registros = 0;
+      //obtenemos la cantidad de registros existentes en la tabla
+      try{         
+         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT count(1) as total FROM mecanico_mantencion");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.out.println(e);
+      }
+      
+    Object[][] data = new String[registros][2];  
+    //realizamos la consulta sql y llenamos los datos en "Object"
+      try{    
+         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT" +
+            " nombre, app" +
+            " FROM mecanico m, mecanico_mantencion mm"+
+            " where secuencia = ? and m.id_mecanico=mm.id_mecanico"     );
+         pstm.setString(1, secuencia); 
+         ResultSet res = pstm.executeQuery();
+         int i = 0;
+         while(res.next()){
+            String nombre = res.getString("nombre");
+            String app = res.getString("app");
+            data[i][0] = nombre;            
+            data[i][1] = app;            
+                              
+            i++;
+         }
+         res.close();
+          }catch(SQLException e){
+         System.out.println(e);
+    }
+    return data;
+ }    
+             //REPUESTOS
+ public Object [][] getDatosRepuestos(String secuencia){
+      int registros = 0;
+      //obtenemos la cantidad de registros existentes en la tabla
+      try{         
+         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT count(1) as total FROM repuesto ");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.out.println(e);
+      }
+      
+    Object[][] data = new String[registros][1];  
+    //realizamos la consulta sql y llenamos los datos en "Object"
+      try{    
+         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
+            " descripcion" +
+            " FROM repuesto r, mantencion_repuesto mr"+
+            " where r.id_repuesto=mr.id_repuesto and mr.secuencia = ?"     );
+         pstm.setString(1, secuencia); 
+         ResultSet res = pstm.executeQuery();
+         int i = 0;
+         while(res.next()){
+            String descripcion = res.getString("descripcion");
+            data[i][0] = descripcion;            
+                              
             i++;
          }
          res.close();

@@ -284,6 +284,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
             updateTabla();
             fila=-1;
         }
+        nuevo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
@@ -326,6 +327,7 @@ public class AdminUsuarioForm extends javax.swing.JInternalFrame {
         String clave = txtclave.getText();
         au.NuevoUsuario(rut, nombre, apellido, estado_usuario, nivel_acceso, clave);
         updateTabla(); 
+        nuevo();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void cmbprivilegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbprivilegioActionPerformed
