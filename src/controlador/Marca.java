@@ -28,7 +28,7 @@ public class Marca {
    
    public void EliminarMarca(String id){  
             try {                
-                PreparedStatement pstm = con.getConnection().prepareStatement("delete from cliente where id_marca = ?");            
+                PreparedStatement pstm = con.getConnection().prepareStatement("delete from marca where id_marca = ?");            
                 pstm.setString(1, id);                   
                 pstm.execute();
                 pstm.close();            
