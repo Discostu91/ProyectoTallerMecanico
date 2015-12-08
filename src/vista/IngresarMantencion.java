@@ -5,6 +5,7 @@
  */
 package vista;
 import controlador.mantencion;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 /**
@@ -15,6 +16,8 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
 
     
     Object[][] dtMan;
+    Object[][] dtMan2;
+    Object[][] dtMan3;
     int fila = -1;
     mantencion manten=new mantencion();
     /**
@@ -23,7 +26,10 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
     public IngresarMantencion() {
         initComponents();
         updateTabla();
+        nuevo();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,6 +213,11 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(tablamecanico);
 
         btnasignarmecanico.setText("Asignar Mecanicos");
+        btnasignarmecanico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnasignarmecanicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -316,9 +327,9 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -327,8 +338,7 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
                     .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -344,7 +354,31 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
             txtfechaentrega.setText("");
             txtfolio.setText("");
             
-            
+    }       
+    public void actualizartablamecanicos(){
+        String[] columNames = {"Nombre", "apellido"};  
+        // se utiliza la funcion
+        String secuencia=txtsecuencia.getText();
+        dtMan2 = manten.getDatosMecanicos(secuencia);
+               
+        // se colocan los datos en la tabla
+        DefaultTableModel datos = new DefaultTableModel(dtMan2,columNames);                        
+        tablamecanico.setModel(datos); 
+        
+        
+    }
+    
+    public void actualizartablarepuestos(){
+    
+        String[] columNames = {"Repuesto"};  
+        // se utiliza la funcion
+        String secuencia=txtsecuencia.getText();
+        dtMan3 = manten.getDatosRepuestos(secuencia);
+               
+        // se colocan los datos en la tabla
+        DefaultTableModel datos = new DefaultTableModel(dtMan3,columNames);                        
+        tablarepuesto.setModel(datos); 
+        
     }
     
     private void updateTabla(){             
@@ -369,6 +403,7 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
             manten.deleteMantencion(secuencia);
             updateTabla();
             fila=-1;
+            nuevo();
         }
         
     }//GEN-LAST:event_btneliminarActionPerformed
@@ -397,6 +432,8 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
         String folio = txtfolio.getText();
         
         manten.NuevaMantencion(descripcion, fecha_recepcion, fecha_entrega, folio);
+        updateTabla();
+        nuevo();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void tablamantencionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablamantencionMouseClicked
@@ -408,8 +445,24 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
              txtfechaentrega.setText(String.valueOf(tablamantencion.getValueAt(fila, 3)));
              txtfolio.setText(String.valueOf(tablamantencion.getValueAt(fila, 4)));
              updateTabla();
+             
          }
+         actualizartablamecanicos();
+         actualizartablarepuestos();
+         
     }//GEN-LAST:event_tablamantencionMouseClicked
+
+    private void btnasignarmecanicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasignarmecanicoActionPerformed
+//ventana_principal principal = new ventana_principal();
+//JInternalFrame1 ventana1 = new JInternalFrame1();
+//principal.getContentPane().add(ventana1);
+//ventana1.setVisible(true);
+      
+//      MecanicoMantencion mecamanten=new MecanicoMantencion();
+//      PanelPrincipal.add(mecamanten);
+//      mecamanten.setVisible(true); 
+      
+    }//GEN-LAST:event_btnasignarmecanicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

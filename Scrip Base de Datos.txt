@@ -103,4 +103,11 @@ insert into modelo (descripcion, cilindrada, id_marca)values ('Palio','1.6cc',1)
 insert into modelo (descripcion, cilindrada, id_marca)values ('Corsa','1.6cc',2);
 insert into modelo (descripcion, cilindrada, id_marca)values ('Terrano','13.0cc',3);
 
+insert into cliente (rut, app, nombre, telefono)values ('1','Vargas','Alvaro', 88935861);
+
+insert into auto (patente, rut, id_modelo)values ('bzsf37','1',2);
+
+insert into ficha_auto (patente)values ('bzsf37');
+
+
 
