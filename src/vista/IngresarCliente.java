@@ -300,13 +300,13 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         if (fila > -1){
-//        String id = String.valueOf(Tabla.getValueAt(fila, 1));
+
         String rut=txtrut.getText();
         String nombre=txtnombre.getText();
         String app=txtapellido.getText();
         String telefono=txttelefono.getText();
         
-//        Cliente AC=new Cliente();
+
         C.ActualizarCliente(rut, app, nombre, telefono);
         updateTabla();
         Limpiar();
@@ -328,7 +328,7 @@ public class IngresarCliente extends javax.swing.JInternalFrame {
         String app=txtapellido.getText();
         String telefono=txttelefono.getText();
         
-//        Cliente NC=new Cliente();
+
         C.GuardarCliente(rut, app, nombre, telefono);
         updateTabla();
         Limpiar();

@@ -50,8 +50,7 @@ PRIMARY KEY (id_mecanico, secuencia)
 create table modelo(
 id_modelo integer not null,
 descripcion varchar (20) not null,
-cilindrada integer,
-color  integer,
+cilindrada varchar (10) not null,
 id_marca integer not null,
 PRIMARY KEY (id_modelo),
 FOREIGN KEY (id_marca) REFERENCES marca (id_marca)

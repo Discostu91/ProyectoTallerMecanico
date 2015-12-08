@@ -19,13 +19,15 @@ public mantencion (){
   } 
   
   /*Añade un nuevo registro*/
-   public void NuevaMantencion(String app, String nombre){
+   public void NuevaMantencion(String descripcion, String fecha_recepcion, String fecha_entrega, String folio){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
-                    "mecanico(app, nombre) " +
-                    " values(?,?)");            
-            pstm.setString(1, app);
-            pstm.setString(2, nombre);                        
+                    "mantencion(descripcion, fecha_recepcion, fecha_entrega, folio) " +
+                    " values(?,?,?,?)");            
+            pstm.setString(1, descripcion);
+            pstm.setString(2, fecha_recepcion);
+            pstm.setString(3, fecha_entrega); 
+            pstm.setString(4, folio); 
             pstm.execute();
             pstm.close();            
          }catch(SQLException e){
@@ -37,15 +39,19 @@ public mantencion (){
    
    
    
-     public void updateMantencion(String id_mecanico, String app, String nombre){
+     public void updateMantencion(String secuencia, String descripcion, String fecha_recepcion, String fecha_entrega, String folio){
        try {            
-            PreparedStatement pstm = con.getConnection().prepareStatement("update mecanico " +
-            "set app = ? ," +
-            "nombre = ? ," +                               
-            "where id_mecanico = ? ");            
-            pstm.setString(1, app);                   
-            pstm.setString(2, nombre);           
-            pstm.setString(3, String.valueOf(id_mecanico));
+            PreparedStatement pstm = con.getConnection().prepareStatement("update mantencion " +
+            "set descripcion = ? ," +
+            "fecha_recepcion = ? ," +
+            "fecha_entrega = ? ," +  
+            "folio = ? " +  
+            "where secuencia = ? ");            
+            pstm.setString(1, descripcion);                   
+            pstm.setString(2, fecha_recepcion); 
+            pstm.setString(3, fecha_entrega);
+            pstm.setString(4, folio);
+            pstm.setString(5, String.valueOf(secuencia));
             pstm.execute();
             pstm.close();            
          }catch(SQLException e){
@@ -53,11 +59,11 @@ public mantencion (){
       }
    }
    
-   public void deleteMantencion(String cod){  
+   public void deleteMantencion(String secuencia){  
             try {                
-                PreparedStatement pstm = con.getConnection().prepareStatement("delete from mecanico "
-                        + "where id_mecanico = ?");            
-                pstm.setString(1, cod);                   
+                PreparedStatement pstm = con.getConnection().prepareStatement("delete from mantencion "
+                        + "where secuencia = ?");            
+                pstm.setString(1, secuencia);                   
                 pstm.execute();
                 pstm.close();           
             }catch(SQLException e){
@@ -81,21 +87,25 @@ public mantencion (){
          System.out.println(e);
       }
       
-    Object[][] data = new String[registros][3];  
+    Object[][] data = new String[registros][4];  
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
-            " id_mecanico, app, nombre " +
-            " FROM mmantencion");
+            " secuencia, descripcion, fecha_recepcion, fecha_entrega, folio" +
+            " FROM mantencion");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
-            String estCodigo = res.getString("id_mecanico");
-            String estApp = res.getString("app");
-            String estNombre = res.getString("nombre");           
-            data[i][0] = estCodigo;            
-            data[i][1] = estApp;            
-            data[i][2] = estNombre;            
+            String secuencia = res.getString("secuencia");
+            String descripcion = res.getString("descripcion");
+            String fecha_recepcion = res.getString("fecha_recepcion");
+            String fecha_entrega = res.getString("fecha_entrega");  
+            String folio = res.getString("folio");  
+            data[i][0] = secuencia;            
+            data[i][1] = descripcion;            
+            data[i][2] = fecha_recepcion; 
+            data[i][3] = fecha_entrega;
+            data[i][4] = folio;
                        
             i++;
          }
