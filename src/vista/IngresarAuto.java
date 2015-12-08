@@ -6,7 +6,7 @@
 package vista;
 import controlador.conectate;
 import controlador.Auto;
-import controlador.mecanico;
+
 import javax.swing.ComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -27,8 +27,9 @@ Auto auto=new Auto();
      * Creates new form IngresarAuto
      */
     public IngresarAuto() {
+      
         initComponents();
-        this.combo.removeAllItems();
+     
        
         
     }
