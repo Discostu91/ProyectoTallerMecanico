@@ -38,7 +38,6 @@ public class FormAdmin extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -113,14 +112,6 @@ public class FormAdmin extends javax.swing.JFrame {
 
         jMenu2.setText("Ingresos");
 
-        jMenuItem6.setText("Ingresar Mantención");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem6);
-
         jMenuItem7.setText("Crear Automovil");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,14 +166,10 @@ public class FormAdmin extends javax.swing.JFrame {
         System.exit(0); //cierra el programa
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-IngresarMantencion mantencion=new IngresarMantencion();
-      PanelPrincipal.add(mantencion);
-      mantencion.show();         
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
+        IngresarMantencion manten=new IngresarMantencion();
+        PanelPrincipal.add(manten);
+        manten.show(); 
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -209,17 +196,17 @@ RegistrarMarca marca=new RegistrarMarca();
       repuesto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-     IngresarAuto auto=new IngresarAuto();
-      PanelPrincipal.add(auto);
-      auto.show();      // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         AdminUsuarioForm usuario=new AdminUsuarioForm();
         PanelPrincipal.add(usuario);
         usuario.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        IngresarAuto auto=new IngresarAuto();
+        PanelPrincipal.add(auto);
+        auto.show();      // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,7 +288,6 @@ RegistrarMarca marca=new RegistrarMarca();
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables

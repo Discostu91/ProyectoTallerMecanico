@@ -9,12 +9,12 @@ package vista;
  *
  * @author crist
  */
-public class XXXMecanicoMantención extends javax.swing.JInternalFrame {
+public class MecanicoMantención extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form MecanicoMantención
      */
-    public XXXMecanicoMantención() {
+    public MecanicoMantención() {
         initComponents();
     }
 

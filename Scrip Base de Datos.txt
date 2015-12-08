@@ -66,6 +66,7 @@ PRIMARY KEY (folio)
 create table auto(
 patente varchar (6) not null,
 rut varchar (12) not null,
+id_modelo integer,
 PRIMARY KEY (patente)
 );
 
@@ -79,6 +80,8 @@ PRIMARY KEY (secuencia)
 );
 
 alter table ficha_auto add FOREIGN KEY (patente) REFERENCES auto(patente);
+
+alter table auto add FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo);
 
 
 alter table auto add FOREIGN KEY (rut) REFERENCES cliente (rut);

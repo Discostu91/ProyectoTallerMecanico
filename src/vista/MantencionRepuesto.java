@@ -9,12 +9,12 @@ package vista;
  *
  * @author crist
  */
-public class XXXMantencionRepuesto extends javax.swing.JInternalFrame {
+public class MantencionRepuesto extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form MantencionRepuesto
      */
-    public XXXMantencionRepuesto() {
+    public MantencionRepuesto() {
         initComponents();
     }
 
