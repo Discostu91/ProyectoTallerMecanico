@@ -99,13 +99,10 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
 
         tablamantencion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tablamantencion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,13 +198,13 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
 
         tablamecanico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1"
+
             }
         ));
         jScrollPane3.setViewportView(tablamecanico);
@@ -261,18 +258,20 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
 
         tablarepuesto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Title 1"
+
             }
         ));
         jScrollPane2.setViewportView(tablarepuesto);
 
         btnrepuesto.setText("Agregar Repuestos");
+        btnrepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrepuestoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -453,16 +452,20 @@ public class IngresarMantencion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablamantencionMouseClicked
 
     private void btnasignarmecanicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasignarmecanicoActionPerformed
-//ventana_principal principal = new ventana_principal();
-//JInternalFrame1 ventana1 = new JInternalFrame1();
-//principal.getContentPane().add(ventana1);
-//ventana1.setVisible(true);
-      
-//      MecanicoMantencion mecamanten=new MecanicoMantencion();
-//      PanelPrincipal.add(mecamanten);
-//      mecamanten.setVisible(true); 
+     
+        MecanicoMantencion mecman=new MecanicoMantencion();
+        FormAdmin.PanelPrincipal.add(mecman);
+        mecman.toFront();
+        mecman.setVisible(true);
       
     }//GEN-LAST:event_btnasignarmecanicoActionPerformed
+
+    private void btnrepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrepuestoActionPerformed
+        MantencionRepuesto manrep=new MantencionRepuesto();
+        FormAdmin.PanelPrincipal.add(manrep);
+        manrep.toFront();
+        manrep.setVisible(true);
+    }//GEN-LAST:event_btnrepuestoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
