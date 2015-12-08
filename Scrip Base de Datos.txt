@@ -80,7 +80,7 @@ PRIMARY KEY (secuencia)
 
 alter table ficha_auto add FOREIGN KEY (patente) REFERENCES auto(patente);
 
-alter table auto add FOREIGN KEY (folio) REFERENCES ficha_auto (folio);
+
 alter table auto add FOREIGN KEY (rut) REFERENCES cliente (rut);
 
 alter table mantencion add FOREIGN KEY (folio) REFERENCES  ficha_auto (folio);
