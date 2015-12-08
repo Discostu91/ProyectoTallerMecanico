@@ -37,8 +37,8 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
         txtcilindrada = new javax.swing.JTextField();
         txtcolor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtidmarca = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
         btnguardar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -73,11 +73,11 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("ID Marca");
-
-        txtidmarca.setEditable(false);
+        jLabel4.setText("Marca");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sedanpng.png"))); // NOI18N
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,7 +95,7 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
                     .addComponent(txtdescripcion)
                     .addComponent(txtcilindrada)
                     .addComponent(txtcolor, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(txtidmarca))
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21)
                 .addComponent(jLabel6)
                 .addContainerGap())
@@ -121,7 +121,7 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtidmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -216,6 +216,7 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -227,6 +228,5 @@ public class IngresarModelo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtcilindrada;
     private javax.swing.JTextField txtcolor;
     private javax.swing.JTextField txtdescripcion;
-    private javax.swing.JTextField txtidmarca;
     // End of variables declaration//GEN-END:variables
 }

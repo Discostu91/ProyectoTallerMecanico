@@ -36,7 +36,6 @@ public class FormJMecanicos extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -100,9 +99,6 @@ public class FormJMecanicos extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem5);
-
-        jMenuItem8.setText("Administación Usuarios");
-        jMenu1.add(jMenuItem8);
 
         jMenuBar1.add(jMenu1);
 
@@ -170,44 +166,44 @@ public class FormJMecanicos extends javax.swing.JFrame {
         System.exit(0); //cierra el programa
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-IngresarMantencion mantencion=new IngresarMantencion();
-      PanelPrincipal.add(mantencion);
-      mantencion.show();         
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-IngresarCliente cliente=new IngresarCliente();
-      PanelPrincipal.add(cliente);
-      cliente.show();        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-RegistrarMecanico mecanico=new RegistrarMecanico();
-      PanelPrincipal.add(mecanico);
-      mecanico.show();         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-RegistrarMarca marca=new RegistrarMarca();
-      PanelPrincipal.add(marca);
-      marca.show();         //        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     IngresarRepuesto repuesto=new IngresarRepuesto();
-      PanelPrincipal.add(repuesto);
-      repuesto.show();      // TODO add your handling code here:
+        IngresarRepuesto repuesto=new IngresarRepuesto();
+        PanelPrincipal.add(repuesto);
+        repuesto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        RegistrarMarca marca=new RegistrarMarca();
+        PanelPrincipal.add(marca);
+        marca.show();         //        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        RegistrarMecanico mecanico=new RegistrarMecanico();
+        PanelPrincipal.add(mecanico);
+        mecanico.show();         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        IngresarCliente cliente=new IngresarCliente();
+        PanelPrincipal.add(cliente);
+        cliente.show();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        IngresarMantencion mantencion=new IngresarMantencion();
+        PanelPrincipal.add(mantencion);
+        mantencion.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-     IngresarAuto auto=new IngresarAuto();
-      PanelPrincipal.add(auto);
-      auto.show();      // TODO add your handling code here:
+        IngresarAuto auto=new IngresarAuto();
+        PanelPrincipal.add(auto);
+        auto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
@@ -324,6 +320,5 @@ RegistrarMarca marca=new RegistrarMarca();
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }

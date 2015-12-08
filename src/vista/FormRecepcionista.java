@@ -32,16 +32,11 @@ public class FormRecepcionista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -69,21 +64,13 @@ public class FormRecepcionista extends javax.swing.JFrame {
 
         jMenu1.setText("Mantenedor");
 
-        jMenuItem2.setText("Crear Cliente");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem10.setText("Crear Cliente");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItem10ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Crear Mecánico");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(jMenuItem10);
 
         jMenuItem4.setText("Registrar Marca");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -92,17 +79,6 @@ public class FormRecepcionista extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Registrar Repuesto");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem8.setText("Administación Usuarios");
-        jMenu1.add(jMenuItem8);
 
         jMenuBar1.add(jMenu1);
 
@@ -125,18 +101,6 @@ public class FormRecepcionista extends javax.swing.JFrame {
         jMenu2.add(jMenuItem7);
 
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Movimientos");
-
-        jMenuItem10.setText("Mantención");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Logout");
 
@@ -176,39 +140,23 @@ IngresarMantencion mantencion=new IngresarMantencion();
       mantencion.show();         
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-     IngresarCliente cliente=new IngresarCliente();
-      PanelPrincipal.add(cliente);
-      cliente.show();        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-     RegistrarMecanico meca=new RegistrarMecanico();
-      PanelPrincipal.add(meca);
-      meca.show();         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-RegistrarMarca marca=new RegistrarMarca();
-      PanelPrincipal.add(marca);
-      marca.show();         //        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     IngresarRepuesto repuesto=new IngresarRepuesto();
-      PanelPrincipal.add(repuesto);
-      repuesto.show();      // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
      IngresarAuto auto=new IngresarAuto();
       PanelPrincipal.add(auto);
       auto.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        RegistrarMarca marca=new RegistrarMarca();
+        PanelPrincipal.add(marca);
+        marca.show();         //        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        IngresarCliente cliente=new IngresarCliente();
+        PanelPrincipal.add(cliente);
+        cliente.show();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,17 +213,12 @@ RegistrarMarca marca=new RegistrarMarca();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }

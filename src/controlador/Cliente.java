@@ -15,15 +15,14 @@ public class Cliente {
      public void ActualizarCliente(String rut, String app, String nombre, String telefono){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement("update cliente " +
-            "set rut = ? ," +
-            "app = ? ," +
+            "set app = ? ," +
             "nombre = ? ," +
             "telefono = ? " +
             "where rut = ? ");
-            pstm.setString(1, rut);                   
-            pstm.setString(2, app);
-            pstm.setString(3, nombre);
-            pstm.setString(4, telefono);
+            pstm.setString(1, app);
+            pstm.setString(2, nombre);
+            pstm.setString(3, telefono);
+            pstm.setString(4, rut);
             pstm.execute();
             pstm.close();   
             }catch(SQLException e){
