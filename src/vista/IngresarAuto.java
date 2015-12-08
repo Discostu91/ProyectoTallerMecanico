@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package vista;
+import controlador.conectate;
 import controlador.Auto;
 import controlador.mecanico;
+import javax.swing.ComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import static vista.RegistrarMecanico.mitabla;
@@ -14,7 +16,9 @@ import static vista.RegistrarMecanico.mitabla;
  *
  * @author crist
  */
+
 public class IngresarAuto extends javax.swing.JInternalFrame {
+    
 Auto auto=new Auto();
     
     Object[][] dtPer; 
@@ -24,7 +28,9 @@ Auto auto=new Auto();
      */
     public IngresarAuto() {
         initComponents();
-        this.comboauto.removeAllItems();
+        this.combo.removeAllItems();
+       
+        
     }
 
     /**
@@ -54,7 +60,7 @@ Auto auto=new Auto();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        comboauto = new javax.swing.JComboBox();
+        combo = new javax.swing.JComboBox();
         txtidmodelo = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
@@ -92,7 +98,11 @@ Auto auto=new Auto();
 
         jLabel6.setText("No esta el modelo, agregalo");
 
-        comboauto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboActionPerformed(evt);
+            }
+        });
 
         txtidmodelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +125,7 @@ Auto auto=new Auto();
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtpatente, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                             .addComponent(txtrut)
-                            .addComponent(comboauto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(jButton2))
@@ -143,7 +153,7 @@ Auto auto=new Auto();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(comboauto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addGap(5, 5, 5)
@@ -308,12 +318,22 @@ if (fila > -1){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidmodeloActionPerformed
 
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+
+        
+        
+       
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_comboActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnnuevo;
-    private javax.swing.JComboBox comboauto;
+    private javax.swing.JComboBox combo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

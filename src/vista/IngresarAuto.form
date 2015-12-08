@@ -107,7 +107,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtpatente" pref="187" max="32767" attributes="0"/>
                               <Component id="txtrut" max="32767" attributes="0"/>
-                              <Component id="comboauto" alignment="0" max="32767" attributes="0"/>
+                              <Component id="combo" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -145,7 +145,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboauto" min="-2" max="-2" attributes="0"/>
+                      <Component id="combo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -199,17 +199,10 @@
             <Property name="text" type="java.lang.String" value="No esta el modelo, agregalo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboauto">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JComboBox" name="combo">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtidmodelo">
           <Events>

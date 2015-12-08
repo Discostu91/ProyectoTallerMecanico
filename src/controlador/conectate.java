@@ -13,7 +13,7 @@ public class conectate {
    Connection conn = null;
 
    /** Constructor de DbConnection */
-   public conectate() {
+   public  void conectate() {
       try{
          //obtenemos el driver de para mysql
          Class.forName("org.apache.derby.jdbc.ClientDriver");
