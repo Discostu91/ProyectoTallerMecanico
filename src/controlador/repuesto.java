@@ -14,7 +14,8 @@ public class repuesto {
   /*Añade un nuevo registro*/
    public void NuevaRepuesto(String descripcion){
        try {            
-            PreparedStatement pstm = con.getConnection().prepareStatement("insert into " + 
+            PreparedStatement pstm = con.getConnection().prepareStatement
+                   ("insert into " + 
                     "repuesto(descripcion) " +
                     " values(?)");            
             pstm.setString(1, descripcion);
@@ -32,9 +33,10 @@ public class repuesto {
    
      public void updateRepuesto(String id_repuesto, String descripcion){
        try {            
-            PreparedStatement pstm = con.getConnection().prepareStatement("update repuesto " +
-            "set descripcion = ? ," +                                        
-            "where id_mecanico = ? ");            
+            PreparedStatement pstm = con.getConnection().prepareStatement 
+            ("update repuesto " +
+            "set descripcion = ? " +                                        
+            "where id_repuesto = ? ");            
             pstm.setString(1, descripcion);                   
             pstm.setString(2, String.valueOf(id_repuesto));
             pstm.execute();

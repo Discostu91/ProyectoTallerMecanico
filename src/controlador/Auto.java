@@ -4,22 +4,23 @@ import java.sql.*;
 /**
 
  */
-public class mecanico {
+public class Auto {
   conectate con;
   
-  public mecanico (){
+  public Auto (){
     con = new conectate();
   } 
   
   /*Añade un nuevo registro*/
-   public void NuevaMecanico(String app, String nombre){
+   public void NuevoAuto(String patente,String rut, String id_modelo  ){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement
                     ("insert into " + 
-                    "mecanico(app, nombre) " +
-                    " values(?,?)");            
-            pstm.setString(1, app);
-            pstm.setString(2, nombre);  
+                    "auto(patente,rut,id_modelo) " +
+                    " values(?,?,?)");            
+            pstm.setString(1, patente);
+            pstm.setString(2, rut); 
+             pstm.setString(3, id_modelo);
             
             pstm.execute();
             pstm.close();            
@@ -32,16 +33,16 @@ public class mecanico {
    
    
    
-     public void updateMecanico(String id_mecanico, String app, String nombre){
+     public void updateAuto(String patente, String rut, String id_modelo){
        try {            
             PreparedStatement pstm = con.getConnection().prepareStatement
-            ("update mecanico " +
-            "set app = ? ," +
-            "nombre = ? " +                               
-            "where id_mecanico = ? ");            
-            pstm.setString(1, app);                   
-            pstm.setString(2, nombre);           
-            pstm.setString(3, String.valueOf(id_mecanico));
+            ("update auto " +
+            "set rut = ? ," +
+            "id_modelo = ? " +                               
+            "where patente = ? ");            
+            pstm.setString(1, rut);                   
+            pstm.setString(2, id_modelo);           
+            pstm.setString(3, String.valueOf(patente));
             pstm.execute();
             pstm.close();            
          }catch(SQLException e){
@@ -49,12 +50,12 @@ public class mecanico {
       }
    }
    
-   public void deleteMecanico(String cod){  
+   public void deleteAuto(String patente){  
             try {                
                 PreparedStatement pstm = con.getConnection().prepareStatement
-                        ("delete from mecanico "
-                        + "where id_mecanico = ?");            
-                pstm.setString(1, cod);                   
+                        ("delete from auto "
+                        + "where patente = ?");            
+                pstm.setString(1, patente);                   
                 pstm.execute();
                 pstm.close();           
             }catch(SQLException e){
@@ -69,7 +70,7 @@ public class mecanico {
       int registros = 0;
       //obtenemos la cantidad de registros existentes en la tabla
       try{         
-         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT count(1) as total FROM mecanico ");
+         PreparedStatement pstm = con.getConnection().prepareStatement("SELECT count(1) as total FROM auto ");
          ResultSet res = pstm.executeQuery();
          res.next();
          registros = res.getInt("total");
@@ -82,18 +83,18 @@ public class mecanico {
     //realizamos la consulta sql y llenamos los datos en "Object"
       try{    
          PreparedStatement pstm = con.getConnection().prepareStatement("SELECT " +
-            " id_mecanico, app, nombre " +
-            " FROM mecanico" +
-            " ORDER BY id_mecanico ");
+            " patente, rut, id_modelo " +
+            " FROM auto" +
+            " ORDER BY patente ");
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){
-            String estCodigo = res.getString("id_mecanico");
-            String estApp = res.getString("app");
-            String estNombre = res.getString("nombre");           
-            data[i][0] = estCodigo;            
-            data[i][1] = estApp;            
-            data[i][2] = estNombre;            
+            String estpatente = res.getString("patente");
+            String estrut = res.getString("rut");
+            String estidmodelo = res.getString("id_modelo");           
+            data[i][0] = estpatente;            
+            data[i][1] = estrut;            
+            data[i][2] = estidmodelo;            
                        
             i++;
          }
